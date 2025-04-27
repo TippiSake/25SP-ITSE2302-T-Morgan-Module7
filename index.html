@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS stylesheet link -->
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <!-- Google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Tiffany Morgan's Mastery Assessment 7</title>
+  </head>
+
+  <!-- body starts here -->
+  <body>
+    <!-- this is my header -->
+
+    <header>
+      <!-- This is my navigation -->
+      <nav>
+        <!-- logo image here -->
+        <figure>
+          <img
+            class="logo"
+            src="Images/prickly_stitch_logo_500x500.png"
+            alt="Organizational logo depicting a cactus rising out of the middle of a spool of thread encircled with the name Prickly Stitch, Texas T-Shirt Design House written beneath."
+            width="250"
+            height="250"
+          />
+        </figure>
+        <!-- end logo img -->
+        <!-- this is my navigation bar with dead links to other pages -->
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- this is my nested banner div with image-->
+      <div id="banner">
+        <figure>
+          <img
+            src="Images/orderBanner.jpg"
+            alt="This image is for displaying on the product ordering page and shows a tiny, desktop grocery cart sitting on a white table next to a white paper checkout bag."
+          />
+        </figure>
+      </div>
+    </header>
+
+    <!-- Start of main content -->
+    <main class="content-wrapper">
+      <br />
+      <h1>Our New Product</h1>
+      <figure>
+        <img
+          class="products"
+          src="Images/white_shirt_500.jpg"
+          alt="Organizational logo depicting a cactus rising out of the middle of a spool of thread encircled with the name Prickly Stitch, Texas T-Shirt Design House written beneath."
+          width="500"
+          height="500"
+        />
+      </figure>
+      <h2>Order Form</h2>
+
+      <br />
+      <br />
+      <form id="orderForm" class="orderForm" method="get">
+        <!-- this fieldset is for retrieving  user's detail information with 2 text inputs -->
+        <fieldset id="personal">
+          <legend><h3>Personal Details</h3></legend>
+          <label for="firstName"
+            >Enter Your First Name:
+            <input type="text" name="firstName" id="firstName" />
+          </label>
+          <br />
+          <label for="lastName"
+            >Enter Your Last Name:
+            <input type="text" name="lastName" id="lastName" />
+          </label>
+          <br />
+          <!-- this is the required additional input #1, a number type-->
+          <label for="age">
+            <span>Enter your age:</span>
+            <input type="number" name="age" id="age" min="1" max="120" />
+          </label>
+        </fieldset>
+        <br />
+        <br />
+        <fieldset>
+          <!-- additional required input type #2 a dropdown menu with the value attribute of each options representing the price of the produc, which is used in the calculateTotal function to compute the cost in the JS file -->
+          <label for="product">Product:</label>
+          <select id="product">
+            <option value="">(Select a product)</option>
+            <option id="tshirt" value="20">T-Shirt</option>
+            <option id="hoodie" value="40">Hoodie</option>
+          </select>
+          <br />
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" min="1" />
+        </fieldset>
+        <br />
+        <br />
+        <!-- this fieldset is for the product customizations checkbox items-->
+        <fieldset>
+          <legend><h3 class="custom">Product Customizations</h3></legend>
+          <label>
+            <!-- the 'delselect others onclick' has been added so that you can not select two types of fabris for one product -->
+            <input
+              type="radio"
+              value="20"
+              name="cotton"
+              id="cotton"
+              class="fabric"
+              onclick="deselectOthers('cotton')"
+            />100% Organic Cotton
+          </label>
+          <div class="info">
+            <span><b>+ $20</b></span>
+          </div>
+
+          <label>
+            <input
+              type="radio"
+              value="30"
+              name="linen"
+              id="linen"
+              class="fabric"
+              onclick="deselectOthers('linen')"
+            />100% Organic French Linen
+          </label>
+          <div class="info">
+            <span><b>+ $30</b></span>
+          </div>
+          <br />
+
+          <div class="item">
+            <h3>Embroidered Prickly Stitch Logo</h3>
+            <label
+              >Logo
+              <input
+                type="checkbox"
+                value="10"
+                name="logoOption"
+                id="logoOption"
+            /></label>
+
+            <div class="info">
+              <span>+ $10</span>
+            </div>
+          </div>
+          <br />
+
+          <div class="item">
+            <h3>UPF 50 Sunscreen Material</h3>
+            <p>
+              Make your shirt work for you by selecting Ultraviolet Protection
+              Factor 50
+            </p>
+            <label for="uvf"
+              >UVF<input type="checkbox" value="50" name="uvf" id="uvf" />
+            </label>
+
+            <div class="info">
+              <span>+ $50</span>
+            </div>
+          </div>
+          <br />
+          <div class="item">
+            <h3>Embroidered Name</h3>
+            <p>
+              Check this box and we will embroider the name you enter on the
+              form!
+            </p>
+            <label for="ename"
+              >Emroidered Name<input
+                type="checkbox"
+                value="10"
+                name="ename"
+                id="ename"
+              />
+              <br />
+            </label>
+
+            <div class="info">
+              <span>+ $10</span>
+            </div>
+            <br />
+          </div>
+          <br />
+        </fieldset>
+        <br />
+        <!-- this fieldset is for user comments from a textarea-->
+        <!--additional input #3 -->
+        <fieldset>
+          <label for="comments"
+            >Please enter your comments or suggestions here:
+            <textarea name="comments" id="comments"></textarea>
+          </label>
+        </fieldset>
+        <!-- Reset and submit buttons here -->
+        <fieldset id="buttons">
+          <legend>
+            <h3>Submit Your Form</h3>
+          </legend>
+          <input type="reset" value="Reset" id="reset" />
+          <input type="submit" value="Submit" id="submit" />
+        </fieldset>
+      </form>
+    </main>
+    <!-- end of main content -->
+    <br />
+    <!-- footer starts here -->
+    <footer>
+      <p>&copy; 2025 Prickly Stitch, Texas T-Shirt Design House</p>
+      <p>All rights reserved.</p>
+      <p>Website designed by Tiffany Morgan</p>
+    </footer>
+    <!-- Javascript link -->
+    <script src="scripts/finale.js"></script>
+  </body>
+</html>
